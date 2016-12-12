@@ -1,0 +1,14 @@
+
+
+
+Error output from /afs/cs.cmu.edu/user/pshell/frulekit/eg/nested.lisp 10-Feb-89 0:17:51.
+Compiled on 5-Dec-89 17:59:58 by CLC version M1.8 ().
+
+MAKE-GOAL compiled.
+MAKE-STATEOF compiled.
+BEGIN compiled.
+
+Finished compilation of file "/afs/cs.cmu.edu/user/pshell/frulekit/eg/nested.lisp".
+0 Errors, 0 Warnings.
+Elapsed time 0:00:08, run time 0:00:06.
+

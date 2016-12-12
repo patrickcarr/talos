@@ -1,0 +1,15 @@
+
+
+
+Error output from /afs/cs.cmu.edu/user/pshell/frulekit/eg/nets.lisp 20-Jun-89 18:09:31.
+Compiled on 5-Dec-89 18:00:09 by CLC version M1.8 ().
+
+MAKE-PERSON compiled.
+MAKE-BOY compiled.
+INIT-TESTNET compiled.
+BEGIN compiled.
+
+Finished compilation of file "/afs/cs.cmu.edu/user/pshell/frulekit/eg/nets.lisp".
+0 Errors, 0 Warnings.
+Elapsed time 0:00:05, run time 0:00:05.
+

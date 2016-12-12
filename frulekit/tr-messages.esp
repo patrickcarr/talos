@@ -1,0 +1,8 @@
+;;; Version espagnola de los mensajes del FRulekit.
+
+:tracing-activated "Tracing activado~%"
+:only-positive-wmes "~A solo puede tratar WMEs positivos de momento.~%"
+:ignoring-test "[Ignorando el test ~A ~A]~%"
+:wme-list  "%~A: ?WME ~A debe ser una lista cuyo CAR sea POS o ABS~%"
+:not-implemented  "No implementado~%"
+:only-condes  "Solo hay ~A condes en ~A, y se ha preguntado por el ~A"

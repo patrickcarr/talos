@@ -1,0 +1,17 @@
+The history and status of FRulekit:
+
+Framekit was originally written by Jaime Carbonell in Franz lisp around
+1984. Framekit is based on SRL, a schema representation language written
+by Mark Fox in the CMU Robotics Institute.  Robert Joseph Framekit to
+Commonlisp and added some enhancements.  He is the maintainer of Framekit.
+
+Carbonell wrote an agenda system called Rulekit in Franz lisp in 1985.
+I translated this to Common lisp.  Then I wrote a full production system
+with a Rete net and working memory, still calling it Rulekit.  Then I wrote
+FRulekit, which is (my) Rulekit with frames as working-memory elements.  It
+uses the Agenda module as an alternative to the standard conflict-resolution
+strategies.
+
+The frame system that FRulekit uses is called Parmenides, which has some
+functionality in common with Framekit, but is enhanced and tailored for the
+needs of FRulekit.  I also wrote and support Parmenides.

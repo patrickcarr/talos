@@ -1,0 +1,209 @@
+*** Logfile for FRulekit.  See frulekit.PS for user manual ***
+
+DATE	MODULES	Comments
+
+9-July-88 build,inter,agenda
+		Added disjunctive capability (the <OR> command).  Also,
+		speeded up FRulekit run-time.  Hanoi was 33% faster,
+		algebra was 20% (with 32 eqns) and Paul Birkel's rule
+		system was 18% faster.
+
+23-June	Build, Inter	Eliminated memory sharing for NOT nodes.  This
+		should have never been done in the first place.
+
+22-June	Build	Added association of predicates to LHS variables.  Used this
+		to make FRulekit use 'eq' instead of the default 'equal'
+		when testing a label since they are more efficient and using
+		'equal' on WMEs can result in infinite loops (if there are
+		circular WME structures).
+
+11-June	Inter	Set the created-by field of wmes to top-level when they
+		are not created in the rhs of a rule.
+
+3-Apr	Build,Inter	Added *FRULEKIT-TERSE* and *PARMENIDES-TERSE* switches
+		which control (almost) all messages not controlled by other
+		switches.  By default set to NIL.
+
+30-Mar	Inter	Made *CYCLE* not wrap around and added *MODCYCLE* for
+		tracing. Changed *MAX-CYCLE* to *MAX-BACK*.
+		:FOREVER given to main-ops-loop (run) makes it run
+		until a halt or nothing in the conflict set.  Cleaned
+		up pp-wme a little.  Added compile-all, which calls
+		compile-nodes and compile-rhses.
+
+26-Mar	Inter	Made rule firing faster and less cons-intensive by eliminating
+		the intermediate varalist slot of the instant structure and
+		instead going directly to the var hash table.
+
+		Added a compile-rhses function, which allows users to
+		compile	the code in their rules' rhs.  The rhs is now a
+		lambda with empty arg list.  compile-rhses is called from
+		compile-nodes.
+
+25-Mar	Agenda	Made agenda execution faster by keeping track of the number of
+		instantiations in each bucket.  See frulekit/notes/fasteragenda
+
+	Inter	Added an optional parameter, slots, to copy-frame.  For each
+		slot in this plist, copy-frame copies the corresponding data
+		structure in the frame to be copied.  This is for $modify.
+
+23-Mar	Agenda	Added optional <cycles> parameter to r-agenda and cont-agenda.
+
+20-Mar	Inter	Took out *WM* list.  This only slowed things down.  Functions
+		like pp-wm find wmes by traversing the T- and N-nodes.
+
+13-Mar	Inter	Added matches, which is like the OPS-5 matches but also
+		takes the keyword max (max #condes to print for) and stream,
+		and pays attention to *NUMBER-WMES*.
+
+12-Mar	Inter	Made back incf the ins-count of rules that are un-refracted.
+		This makes Agenda aware of the state of the system when
+		backing up.  However, a complete back for agenda has not
+		been written.
+
+	Inter, Parmenides.  Wrote $modify-demons and modify-frame-demons
+
+25-Feb	Build	made FRK put checks after nested wmes into the nested wme.
+		so condes like: (wme1 :a =a1 :child (wme2 :a =a2)
+					(CHECK (<> =a1 =a2))) compile correctly
+
+25-Feb	Build	Added the MBIND command, which is like BIND but for
+		multiple values.
+
+23-Feb	Inter	Got rid of *COUNT-CLASSES* and num-tokens-of-class.
+		Uers can just do (length (instances-of <class>)).
+
+15-Feb	Inter	made $modify a function; added support for non-faceted slots
+
+8-Feb	Inter	Took out token-tag slot, added *TOKEN-POSITIVE* flag.
+		This makes it much more space-efficient and a little faster.
+
+6-Feb	Build	Implemented dynamic LHS slot specification [e.g., =slot =facet]
+
+1-Feb-87 Build	Implemented LHS BIND command. (BIND =x (any-expression)).
+
+6-Dec	Build	Let the user label =!'s.
+
+5-Dec	Inter	Added back.  Restores the system to previous states.
+
+2-Dec	Build	Added excise.  Deletes a rule and appropriate nodes
+		from the rete net.
+
+26-Nov	Build	Changed :CHECK and :LABEL syntax to (LABEL ...) and (CHECK...).
+
+29-Sep	Inter	specificity in c.r. and more general c.r. defining ability.
+
+7-Sep	Build	Added =< (anysub) syntax.  Like =! except uses isa-p.
+	Inter	Added WHYNOT explanation module.
+		Added add-frame function for adding already-defined frames
+		to working memory.
+
+2-Sep	Log	Started a version of the log file in the frulekit directory.
+		All changes and support is now for the FRulekit version.
+	Inter,	Added any class tests.  Need to augment c.r. to take
+	Build	precedence over instantiations whose class tests are more
+		specific (i.e., lower down in isa hierarchy).
+
+1-Sep	Build	Added a pre-processer of conde's which adds a nicer syntax
+		for specifying nested wmes - see the manual.
+
+12-June	Inter,	Wrote a Parmenides version.  Now WMEs and rules are frames.
+	Build   $make is no longer a macro (this doesn't affect ordinary
+		uses of $make).  Literalize has a different
+		syntax since Rulekit classes can now be is-a other classes.
+		LHS tests, makes and modifies now implicitly refer to the
+		value facet of slots; each wme frame defined by literalize
+		automatically is-a wme and has at least the value facet for
+		each slot.  The new Rulekit is in /usr/pshell/frulekit/frulekit
+
+20-Mar	Inter	Allowed correct retreival of variable values when
+		calls to Rulekit are nested.
+
+19-Mar	Inter	If the trace package is not activated, then $MODIFY
+		will no longer make a copy of the structure it
+		modifies.
+
+18-Mar	Build,	Finished the build-rule command.  The syntax is
+	Inter	exactly the same as RULE, with BUILD-RULE
+		substituted.  It is for defining a rule when
+		there is already something in working memory.
+		It's fairly efficient since it doesn't have to
+		iterate through all of working memory unless
+		if a new class is being tested in the rule.
+
+	Trace,	Added tracing of labels associated with WMEs.
+	Inter	Whenever a WME is created through $modify,
+		the label that was associated with it at that
+		time is stored with it.  conde-responsible-for
+		in trace returns the condition element which
+		matched to make that WME.
+
+	Build	Made it be able to run in declisp.
+
+	Build	The OPS module (start,cont,run) now returns a value.
+		This is the value that the last production firing
+		returned before quiescence was reached.
+
+	Build,	Added the :POST slot for a rule.  This is a post-
+	Inter	lisp-test which can check production variables, is
+		tested during conflict-res and should only be needed
+		when the Agenda strategy is used (it is not checked
+		by Ops).
+
+	Build	Added ability to have more than one lisp check per
+		condition element.
+
+17-Mar	Build,	Implemented shared memory.  This is almost a
+	Inter	necessity for build-rule.
+
+15-Mar	Inter	Added *COUNT-CLASSES* flag.  By default off, if true
+		then the number of wmes of each class will be
+		counted.  num-tokens takes a WME and returns the
+		number of wmes of the same class of that wme.
+	Build	Added run command, which takes the number of
+		cycles to run for.  Doesn't clear working memory.
+
+12-Mar	Inter	Added *COMPILE-CMM* flag.  By default off, if true
+		then literalize will compile class utility functions,
+		making execution faster.
+	Build	Added Beta-node sharing.
+
+11-Mar	Goalmon	Made spawn-subgoals put the subgoals into the
+		tree in the given order, since subgoals are now
+		ordered.
+	Inter	Made *TRACE-MATCH* and *TRACE-UNMATCH* more reasonable
+
+10-Mar	Agenda	Added checking in r-agenda to make sure that all
+		rules in the Agenda have been defined by RULE.
+	Build	Made RULE warn the user about slot tests in a conde
+		that weren't defined by literalize.
+	Inter	Fixed a bug in add-to-wm which caused it to bomb
+		if there was no instantiation when something is
+		being added.  WMEs need to know who added them,
+		so I made it set *INSTANT* to *TOP-LEVEL-INSTANT*.
+	Inter	Made modify update the created and time fields
+		correctly, rather than inherit them.
+
+9-Mar	Build	Fixed up :label.  You no longer have to bind the
+		variable with label first, and fixed a bug which
+		occurred when labels were referenced in the same
+		conde they are defined in.
+	Build	Made it inhibit a rule if it is being re-defined.
+	Build	Made format act more reasonably for Kyoto lisp.
+	Agenda	Made delete-rules more reasonable about *all.
+
+8-Mar	Inter	Added *TRACE-CYCLE* switch.  Controls printing of
+		cycle number.  Default: T.
+		Added *REFRACT* switch.  If on, then rules which
+		fire refract.  Default: T.
+
+5-Mar	Inter, Build	Added code to make it work on Symbolics too.  Compiled
+			symbolics files have a .bin extension.
+4-Mar	Inter, Build	Added $smart-modify, which is faster than $modify.
+			Will soon be renamed to $modify.
+
+1-Mar-86 Inter	Added inhibit-rule(s), uninhibit-rule(s).  A temporary
+		measure until a real delete-rule gets written.
+
+
+November 1985	(Peter Shell's version of) Rulekit created

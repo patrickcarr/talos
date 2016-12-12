@@ -1,0 +1,14 @@
+
+
+
+Error output from /afs/cs.cmu.edu/user/pshell/frulekit/eg/dynamic.lisp 10-Feb-89 0:17:43.
+Compiled on 5-Dec-89 17:59:40 by CLC version M1.8 ().
+
+MAKE-CONTEXT compiled.
+MAKE-DATA compiled.
+BEGIN compiled.
+
+Finished compilation of file "/afs/cs.cmu.edu/user/pshell/frulekit/eg/dynamic.lisp".
+0 Errors, 0 Warnings.
+Elapsed time 0:00:05, run time 0:00:04.
+

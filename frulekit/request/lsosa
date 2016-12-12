@@ -1,0 +1,120 @@
+-- Messages from file: /usr/pshell/Mail/my.mail --
+   Tuesday, 13 July 1993 7:42PM
+
+
+
+Message 143 -- *********************
+Return-Path: <Barbara.R.Moore@BUCHAREST.MT.CS.CMU.EDU>
+Received: from BUCHAREST.MT.CS.CMU.EDU by NL.CS.CMU.EDU id aa25526;
+          7 Jul 93 16:36:50 EDT
+Date: Wed, 7 Jul 93 16:30:24 EDT
+From: Barbara.R.Moore@BUCHAREST.MT.CS.CMU.EDU
+To: pshell@cs.cmu.edu
+Subject: forwarding mail
+
+003
+Return-Path: <@goya.eunet.es:pshell@uef.uucp>
+Received: from goya.eunet.es by NL.CS.CMU.EDU id aa22534; 1 Jul 93 11:23:31 EDTReceived: from uef.UUCP by goya.eunet.es (5.65c/11.0.5) Thu, 1 Jul 1993 17:23:0\
+6 +0200
+Received:  by uef.es (UUPC/@ v4.07 from Ache, 22Mar92);
+           Thu, 01 Jul 1993 17:16:24 GMT
+Resent-To: bmoore@nl.cs.cmu.edu
+Resent-Message-Id: <ACdlnCi0r3@uef.es>
+Resent-Organization: Union Electrica Fenosa
+Resent-From: pshell@uef.es      (Peter Shell)
+Resent-Date: Thu,  1 Jul 93 17:16:23 +0000
+X-Mailer: BML [MS/DOS Beauty Mail v.1.31]
+Received:  by uef.es (UUPC/@ v4.07 from Ache, 22Mar92);
+           Tue, 15 Jun 1993 14:07:22 GMT
+X-Mailer: BML [MS/DOS Beauty Mail v.1.31]
+Received:  by uef.es (UUPC/@ v4.07 from Ache, 22Mar92);
+           Mon, 31 May 1993 12:47:38 GMT
+Received: from ecnet.ec by goya.eunet.es (5.65c/11.0.3) Sat, 29 May 1993 00:58:\
+58 +0200
+Received: by ecnet.ec (AIX 3.2/UCB 5.64/4.03)
+          id AA09635; Fri, 28 May 1993 17:55:19 -0500
+From: lsosa@ecnet.ec (Luis Sosa)
+Message-Id: <9305282255.AA09635@ecnet.ec>
+Subject: INFORMACION SOBRE SISTEMAS EXPERTOS
+To: jberbiela@uef.es
+Date: Fri, 28 May 93 17:55:19 EST
+X-Mailer: ELM [version 2.4dev PL17]
+Status: RO
+
+Jose:
+
+Mi nombre es Luis Sosa y trabajo en el Banco del Pacifico en Quito,
+Joaquin Saldumbide me recomendo que podia dirigirme a ti para solicitarte
+informacion a cerca del apcacionante mundo de la Inteligencia Artificial.
+
+Actualmente estoy empezando a desarrollar un proyecto de tesis que consiste
+en el Diseno y Especificacion de un ambiente para desarrollo de sistemas
+expertos embebidos.  La idea central es realizar una especificacion lo
+mas completa posible de un ambiente de desarrollo de sistemas expertos
+embebidos, que soporte varias tecnicas de representacion de conocimiento
+y que permita el desarrollo de sistemas expertos con requerimientos de
+distintos tipos (sistemas normales, tiempo real, etc) y posteriormente
+desarrollar un protoptipo que incluya algunas de las caracteristicas de la
+especificacion.  Lo mas importante en este caso estaria a nivel de diseno
+de forma de contar con una especificacion que sea extendible, para que
+a futuro otras personas puedan continuar con el trabajo.
+
+Por esta razon, me dirijo a ti para solicitarte informacion sobre lugares
+donde puedea encontrar articulos o trabajos similares desarrollados al
+respecto y que puedan servir de soporte para este trabajo.
+
+Si conoces tu de algun grupo de discucion sobre este tema o lugares donde
+se pueda hacer ftp sobre shells de sistemas experto de dominio publico te
+agradeceria me lo hagas conocer.
+
+Gracias por tu antencion y espero cualquier ayuda y orientacion que puedas
+brindarme.
+
+Saludos,
+Luis Sosa
+Internet e-mail address: lsosa@ecnet.ec
+
+
+\003
+Return-Path: <@goya.eunet.es:pshell@uef.uucp>
+Received: from goya.eunet.es by NL.CS.CMU.EDU id aa22539; 1 Jul 93 11:24:07 EDTReceived: from uef.UUCP by goya.eunet.es (5.65c/11.0.5) Thu, 1 Jul 1993 17:23:0\
+5 +0200
+Received:  by uef.es (UUPC/@ v4.07 from Ache, 22Mar92);
+           Thu, 01 Jul 1993 17:15:41 GMT
+Resent-To: bmoore@nl.cs.cmu.edu
+Resent-Message-Id: <AByknCi0r3@uef.es>
+Resent-Organization: Union Electrica Fenosa
+Resent-From: pshell@uef.es      (Peter Shell)
+Resent-Date: Thu,  1 Jul 93 17:15:40 +0000
+X-Mailer: BML [MS/DOS Beauty Mail v.1.31]
+Received:  by uef.es (UUPC/@ v4.07 from Ache, 22Mar92);
+           Wed, 23 Jun 1993 15:30:21 GMT
+Received: from NL.CS.CMU.EDU by goya.eunet.es (5.65c/11.0.4) Wed, 23 Jun 1993 1\2:09:02 +0200
+Received: from EDRC.CMU.EDU by NL.CS.CMU.EDU id aa12850; 23 Jun 93 6:07:56 EDT
+Received: from noc.BelWue.DE by EDRC.CMU.EDU id aa04114; 23 Jun 93 6:06:51 EDT
+Received: from iehsun.e-technik.uni-stuttgart.de by noc.BelWue.DE with SMTP id \
+AA01410
+  (5.65c/BelWue-M2.04 for <pshell@cs.cmu.edu>); Wed, 23 Jun 1993 12:05:28 +0200Received: from iehsun3.YP.iehnet by iehsun.e-technik.uni-stuttgart.de (4.1/BelW\
+ue-1.1S(subsidiary))
+        id AA02869; Wed, 23 Jun 93 12:02:58 +0200
+Date: Wed, 23 Jun 93 12:02:58 +0200
+From: Johannes Kuehne <jkue@iehsun.e-technik.uni-stuttgart.de>
+Message-Id: <9306231002.AA02869@iehsun.e-technik.uni-stuttgart.de>
+To: pshell@cs.cmu.edu
+Subject: parmenides
+Status: RO
+
+Dear Mr Shell,
+within the context of my diploma for an electrical engineer I have to work
+about an expert system for electric power grid planning. Therefore I need
+a frame-based xps shell or frame-based tool for a sun-workstation, which is in \
+the
+public domain, like PARMENIDES.
+It should has an option to use unix interprocess-communication for interfacing
+the xps to a database program.
+Can you help me?
+Sincerely,
+Johannes Kuehne
+
+
+

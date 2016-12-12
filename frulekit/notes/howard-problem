@@ -1,0 +1,51 @@
+-- Messages from file: /usr/pshell/Mail/my.mail --
+   Wednesday, 27 January 1993 10:33AM
+
+
+
+Message 46 -- *********************
+Return-Path: <@mailbox.srv.cs.cmu.edu,@ns.howard.edu:rrh@scsla.howard.edu>
+Received: from mailbox.srv.cs.cmu.edu by NL.CS.CMU.EDU id aa03304;
+          27 Jan 93 8:26:38 EST
+Received: from ns.howard.edu by MAILBOX.SRV.CS.CMU.EDU id aa02008;
+          27 Jan 93 8:25:59 EST
+Received: from scsla.howard.edu by ns.howard.edu (5.59/1.34)
+	id AA01719; Wed, 27 Jan 93 08:17:13 EST
+Received:  by scsla.howard.edu (5.59/25-eef)
+	id AA00751; Wed, 27 Jan 93 08:25:46 EST
+Date: Wed, 27 Jan 93 08:25:46 EST
+From: "Roger R. Harper" <rrh@scsla.howard.edu>
+Message-Id: <9301271325.AA00751@scsla.howard.edu>
+To: pshell@MAILBOX.SRV.CS.CMU.EDU
+Subject: Using Frulekit
+Cc: rrh@scsla.howard.edu
+
+Hello,
+	My name is Roger Harper, I work with Dr. Coleman at Howard University.
+I spoke to you in December about downloading Frulekit. I was able to download 
+the source, from nl.cs.cmu.edu, as directed, but I am having a little problem 
+compiling it. As directed, I downloaded the files build.lisp, inter.lisp, 
+fr-messages.eng, parmenides.lisp, and pa-messages.eng. I follow the directions 
+for compiling FRulekit as given in the FRulekit manual, I was able to load the 
+file parmenides.lisp, but when I try to execute the compile-file operation, 
+the compiler aborts with the error message:
+       >>Error: faslout saw object of unknown type NIL
+This happens when the compiler tries to write the binary output.
+
+	Would this be related to my not having the file 'parmenides.fasl' that 
+was mentioned in the manual, or is it a problem with the lisp compiler that I
+am using? I am using HP Common Lisp 4.0 which is supposed to be compatible 
+with Common Lisp. Could it be that FRulekit was not designed to work with this
+dialect of Common Lisp?
+
+	Also, is there a reference manual for CMU Lisp available, and would
+it be possible for me to receive a copy? I feel that with a manual, I may
+be able to see the differences between CMU Lisp and HP Lisp and may be able to
+better understand what is going on.
+
+	Any help that you can provide will be appreciated.
+
+			Thanks,
+			Roger R. Harper rrh@scsla.howard.edu
+			(202)806-5099
+

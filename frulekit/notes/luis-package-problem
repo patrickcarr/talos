@@ -1,0 +1,82 @@
+-- Messages from file: /usr/pshell/Mail/my.mail --
+   Sunday, 28 March 1993 10:24PM
+
+
+
+Message 69 -- *********************
+Return-Path: <@goya.uu.es:luis@uef.es>
+Received: from goya.uu.es by NL.CS.CMU.EDU id aa19580; 26 Mar 93 4:51:35 EST
+Received: from uef.UUCP by Spain.EU.net (EUnet) (5.65c/9.5); Thu, 25 Mar 1993 13:07:14 +0100
+Received:  by uef.es (UUPC/@ v4.07 from Ache, 22Mar92);
+           Thu, 25 Mar 1993 12:19:15 GMT
+To: pshell@NL.CS.CMU.EDU
+References: <CMM.0.90.4.732899783.pshell@NL.CS.CMU.EDU>
+Message-Id: <AA2DQihSL8@uef.es>
+Organization: Union Electrica Fenosa
+From: luis@uef.es (Rafael Plaza)
+Date: Thu, 25 Mar 93 12:19:14 +0000
+Subject: Re: Allegro 4.1
+X-Mailer: BML [MS/DOS Beauty Mail v.1.31]
+
+Pete:
+
+Finally, thanks  to   your  help,  the  parmenides.lisp file was
+compiled and writed as  parmenides.sparcl. After that, we loaded
+the  build.lisp file  of  frulekit  and   compiled   it  without
+problem. But  when  we   tried to  load  the inter.lisp  file of
+frulekit ...
+
+
+
+USER(8): (load "/usr2/cresus/frulekit/inter.lisp")
+(load "/usr2/cresus/frulekit/inter.lisp")
+;   Loading /usr2/cresus/frulekit/inter.lisp.
+Error: Exporting the symbol LITERALIZE from the `FRULEKIT' package would cause
+       some packages that use the `FRULEKIT' package to have two accessible
+       but distinct symbols with the same print name.  The packages and
+       conflicting symbols are:
+        package `COMMON-LISP-USER':  COMMON-LISP-USER::LITERALIZE
+
+  [condition type: PACKAGE-ERROR]
+
+Restart actions (select using :continue):
+ 0: Unintern conflicting symbols
+ 1: Skip exporting the symbols
+ 2: retry the load of /usr2/cresus/frulekit/inter.lisp
+ 3: Try calling COMMON-LISP-USER::LITERALIZE again
+ 4: Return a value
+ 5: Try calling a different function
+ 6: Setf the symbol function of COMMON-LISP-USER::LITERALIZE and call it again
+ 7: retry the load of /usr2/cresus/comercial/dataman/dataman-frames
+
+[changing package from "COMMON-LISP-USER" to "FRULEKIT"]
+[2] FRK(9): :zo
+:zo
+Evaluation stack:
+
+   (ERROR PACKAGE-ERROR :PACKAGE ...)
+ ->(EXPORT (RULE RULE* BUILD-RULE ...) #<#>)
+   (EVAL (EXPORT '#))
+   (LOAD "/usr2/cresus/frulekit/inter.lisp" :VERBOSE ...)
+   (EVAL (LOAD "/usr2/cresus/frulekit/inter.lisp"))
+   (ERROR #<UNDEFINED-FUNCTION @ #x78e3be>)
+   (EVAL (USER::LITERALIZE USER::TOTALS-FOR-DAY # ...))
+   (LOAD "/usr2/cresus/comercial/dataman/dataman-frames" :VERBOSE ...)
+   (COND (# # # ...) (T #))
+
+... more older frames ...
+[1] FRK(10):
+
+
+The value for the optimization settings are
+safety   2
+speed    2
+debug    2
+
+The others variables have the NIL value in the .clinit.cl file
+
+
+What could it have happened ?
+
+Regards a lot.
+

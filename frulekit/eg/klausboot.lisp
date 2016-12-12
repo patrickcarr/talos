@@ -1,0 +1,21 @@
+(format T "Loading macros...")
+(load "/../ml/usr/klaus/wm/org/macros")
+;(load "/../ml/usr/klaus/wm/simplex/simplex")
+(format T "Loading di...")
+(load "/../ml/usr/klaus/wm/org/di")
+(format T "Loading dd...")
+(load "/../ml/usr/klaus/wm/org/dd")
+(load "/../ml/usr/klaus/wm/cluster/michalski/boot")
+(format T "Loading linkup...")
+(load "/../ml/usr/klaus/wm/org/linkup")
+(format T "Loading cycle...")
+(load "/../ml/usr/klaus/wm/org/cycle.lisp")
+
+(when (y-or-n-p "Compile All?")
+      (dribble "/../ml/usr/klaus/wm/org/compile-all.err")
+      (compile-all)
+      (dribble))
+
+(if (y-or-n-p "Setup?") (setup))
+
+(if (y-or-n-p "Init?") (init))

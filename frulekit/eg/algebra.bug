@@ -1,0 +1,132 @@
+* (load "fr:exp/algebra")
+Redefining class EQUATION
+Redefining class VAR
+Redefining class COUNT
+
+Compiling rule SOLVE-FOR-UNKNOWN-N...
+Compiling rule REDUCE-EQNS&UNKNS...
+Compiling rule SELECT-VAR...
+Compiling rule SELECT-EQN...
+Compiling rule REARRANGE-EQN...
+Compiling rule SUBSTITUTE...
+Compiling rule ELIMINATE...
+Compiling rule SOLVE-FOR-UNKNOWN-1...
+Compiling rule DONE...
+T
+* (verbose)
+NIL
+* (quiet)
+T
+* (test-alg)
+Goal tracer initialized
+Goal monitor initialized
+
+--- Cycle 1 ---
+
+ ----------> Firing production SOLVE-FOR-UNKNOWN-N
+
+
+--- Cycle 2 ---
+
+ ----------> Firing production REDUCE-EQNS&UNKNS
+
+
+--- Cycle 3 ---
+
+ ----------> Firing production SELECT-VAR
+
+
+--- Cycle 4 ---
+
+ ----------> Firing production REARRANGE-EQN
+
+
+Error in function FRULEKIT::MIP-BETA-RIGHT.
+Wrong type argument, (#(#(VAR 3.0  TOP-LEVEL :Y :YES NIL NIL) 0 NIL)), should have been of type SIMPLE-VECTOR.
+
+Restarts:
+  0: Return to Top-Level.
+
+Debug  (type H for help)
+(CONDITIONS::MAKE-ERROR-TABLE FRULEKIT::MIP-BETA-RIGHT 0 (#(#(# # # # #...) 0 NIL)) NIL)
+0] d
+(FRULEKIT::MIP-BETA-RIGHT #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL)
+                          Rete Node
+ Test: 
+   (LAMBDA (LEFT
+            RIGHT)
+     (EQUAL (VAR-NAME (# #)) (EQUATION-QUANTITY (# #))))
+ Type: BETA NOT
+
+                          #(EQUATION 4.0  TOP-LEVEL :EQN-3 (* 3/4 :Z)...))
+2] d
+(FRULEKIT::CASE-TABLE #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL) T #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL) #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL)...)
+3] d
+(FRULEKIT::MIP-ALPHA #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL)
+                     Rete Node
+ Test: 
+   #<Internal Function of FRULEKIT::MAKE-FINAL-ALPHA-TEST0 {2004298}>
+ Type: ALPHA
+ Slots: (ELEMENTS NAME)
+
+                     #(EQUATION 4.0  TOP-LEVEL :EQN-3 (* 3/4 :Z)...))
+4] d
+(FRULEKIT::MIP-TNODE-PUSH-THROUGH #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL)
+                                  Rete Node
+ Test: 
+   EQUATION
+ Type: NOT T-node
+
+                                  #(EQUATION 4.0  TOP-LEVEL :EQN-3 (* 3/4 :Z)...))
+5] 2
+2
+5] u
+(FRULEKIT::MIP-ALPHA #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL)
+                     Rete Node
+ Test: 
+   #<Internal Function of FRULEKIT::MAKE-FINAL-ALPHA-TEST0 {2004298}>
+ Type: ALPHA
+ Slots: (ELEMENTS NAME)
+
+                     #(EQUATION 4.0  TOP-LEVEL :EQN-3 (* 3/4 :Z)...))
+4] u
+(FRULEKIT::CASE-TABLE #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL) T #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL) #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL)...)
+3] u
+(FRULEKIT::MIP-BETA-RIGHT #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL)
+                          Rete Node
+ Test: 
+   (LAMBDA (LEFT
+            RIGHT)
+     (EQUAL (VAR-NAME (# #)) (EQUATION-QUANTITY (# #))))
+ Type: BETA NOT
+
+                          #(EQUATION 4.0  TOP-LEVEL :EQN-3 (* 3/4 :Z)...))
+2] pp
+(FRULEKIT::MIP-BETA-RIGHT #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (* 3/4 :Z) :Y
+                              (:Y :Z) T) 0 NIL)
+                          Rete Node
+ Test: 
+   (LAMBDA (LEFT
+            RIGHT)
+     (EQUAL (VAR-NAME (TOKEN-CONTENTS LEFT))
+            (EQUATION-QUANTITY (TOKEN-CONTENTS RIGHT))))
+ Type: BETA NOT
+
+                          #(EQUATION 4.0  TOP-LEVEL :EQN-3 (* 3/4 :Z) :Y (:Y :Z)
+                            T))
+2] d
+(FRULEKIT::CASE-TABLE #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL) T #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL) #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (# # #)...) 0 NIL)...)
+3] pp
+(FRULEKIT::CASE-TABLE #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (* 3/4 :Z) :Y (:Y :Z) T) 0 NIL) T #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (* 3/4 :Z) :Y
+                                  (:Y :Z) T) 0 NIL) #(#(EQUATION 4.0  TOP-LEVEL :EQN-3 (* 3/4 :Z)
+                                        :Y (:Y :Z) T) 0 NIL) #(#(EQUATION 4.0  TOP-LEVEL :EQN-3
+                                              (* 3/4 :Z) :Y (:Y :Z) T) 0 NIL)
+                      Rete Node
+ Test: 
+   #<Internal Function of FRULEKIT::MAKE-FINAL-ALPHA-TEST0 {2004298}>
+ Type: ALPHA
+ Slots: (ELEMENTS NAME)
+
+                      #(EQUATION 4.0  TOP-LEVEL :EQN-3 (* 3/4 :Z) :Y (:Y :Z) T))
+3] q
+* 

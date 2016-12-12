@@ -1,0 +1,31 @@
+
+   ********************************************************************
+	        FTP instructions for FRulekit and Parmenides 	
+   ********************************************************************
+
+
+  FRulekit and Parmenides are available via anonymous FTP from the internet.
+To ftp them, type:
+
+  ftp nl.cs.cmu.edu
+
+  Give 'anonymous' as the login name, and your userid@hostname as the password.
+
+  The Frulekit files are in /afs/cs/project/cmt/frulekit, so you should
+next type:
+
+  cd /afs/cs/project/cmt/frulekit
+
+  You need to retrieve the files: build.lisp, inter.lisp, fr-mesages.eng (or
+fr-messages.esp for Spanish messages).  There are also sample frulekit
+rules in /afs/cs/usr/pshell/frulekit/eg/.
+
+  The Parmenides files are in /afs/cs/project/cmt/parmenides.
+You need to retrieve from that directory parmenides.lisp and pa-messages.eng
+or pa-messages.esp.
+
+  Please read the FRulekit manual for compilation instructions.
+
+  If you have any questions, contact pshell@cmu.edu on the internet or
+call 412-268-5140.
+

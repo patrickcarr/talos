@@ -1,0 +1,134 @@
+-- Messages from file: /usr3/pshell/mail.txt --
+   Wednesday, 27 January 1993 6:03PM
+
+
+
+Message 77 -- *********************
+Return-Path: <@ns.howard.edu:rrh@scsla.howard.edu>
+Received: from ns.howard.edu by NL.CS.CMU.EDU id aa06432; 27 Jan 93 17:22:25 EST
+Received: from scsla.howard.edu by ns.howard.edu (5.59/1.34)
+	id AA00688; Wed, 27 Jan 93 17:13:26 EST
+Received:  by scsla.howard.edu (5.59/25-eef)
+	id AA10530; Wed, 27 Jan 93 17:22:07 EST
+Date: Wed, 27 Jan 93 17:22:07 EST
+From: Roger R. Harper <rrh@scsla.howard.edu>
+Message-Id: <9301272222.AA10530@scsla.howard.edu>
+To: pshell@nl.cs.cmu.edu
+Subject: Parmenides Lisp Session
+
+
+	Below is a recording of the lisp session that you asked for. I used
+the script command, and I have placed extra comments, prefaced by '---',
+in the script for clarity.
+
+	The commands that I entered while in the lisp session are prefaced
+by the '>' sign. The output from the session are prefaced by the ';;;'
+notation.
+
+	The error that I got this time was not the same as what I got
+before, leading me to believe that I may be doing something wrong.
+
+	I would appreciate it if you would send the reference manual.
+It could be sent to:
+	Roger R. Harper
+	Department of Systems and Computer Science
+	School of Engineering, Howard University
+	2300 6th. St. N.W.
+	Washington D.C. 20059
+
+				Thanks for your assistance.
+					Roger R. Harper rrh@scsla.howard.edu
+                                        (202)806-5099
+---------------------------------------------------------------------------
+
+Script started on Wed Jan 27 16:41:41 1993
+$ lisp
+;;; HP Common Lisp, Development Environment, 16 August 1990.
+;;; HP-9000, Series 300 Dev Lisp 98688C, Rev. A.04.00
+;;;
+;;; Copyright (c) 1988, 1989, 1990 by Hewlett-Packard, Co., All Rights Reserved.
+;;; Copyright (c) 1985, 1986, 1987, 1988, 1989, 1990 by Lucid, Inc., All Rights Reserved.
+;;;
+;;; 
+
+> (load "/home/cse/rrh/frulekit/parmenides.lisp")
+;;; Loading source file "parmenides.lisp"
+Parmenides 1.5, Copyright (c) 1985, 1988 Carnegie Mellon.
+Defining class RELATION
+#P"/home/cse/rrh/frulekit/parmenides.lisp"
+
+     --  Attempt to compile the loaded file.
+
+> (compile-file "/home/cse/rrh/frulekit/parmenides.lisp")
+;;; You are using the compiler in development mode (compilation-speed = 3)
+;;; Generation of full safety checking code is enabled (safety = 3)
+;;; Optimization of tail calls is disabled (speed = 2)
+;;; Reading source file "parmenides.lisp"
+;;; Writing binary file "parmenides.6bin"
+#P"/home/cse/rrh/frulekit/parmenides.6bin"
+
+     --  The compilation seems to have worked this time. Attempt to load
+     --  the compiled file.
+
+> (load "/home/cse/rrh/frulekit/parmenides")
+;;; Loading binary file "parmenides.6bin"
+>>Trap: Interrupt: bus error
+
+unnamed function:
+:C  0: Try loading "/home/cse/rrh/frulekit/parmenides" again
+:A  1: Abort to Lisp Top Level
+
+     --  From the debugger, get the contents of the stack.
+
+-> :B
+unnamed function <- LUCID-COMMON-LISP:FASLOAD <- (:INTERNAL LOAD LUCID::LOAD-BINARY-FILE) <- LOAD <- EVAL <- SYSTEM:ENTER-TOP-LEVEL
+-> 1
+Abort to Lisp Top Level
+Back to Lisp Top Level
+
+    --  Attempt to compile and load parmenides.lisp again.
+
+> (compile-file "/home/cse/rrh/frulekit/parmenides.lisp")
+;;; Reading source file "parmenides.lisp"
+;;; Writing binary file "parmenides.6bin"
+#P"/home/cse/rrh/frulekit/parmenides.6bin"
+> (load "/home/cse/rrh/frulekit/parmenides")
+;;; Loading binary file "parmenides.6bin"
+>>Error: BOUNDP called with 3 arguments, but only 1 argument is allowed
+
+BOUNDP:
+   Required arg 0 (S): *LANGUAGE*
+:C  0: Ignore extra arguments
+    1: Try loading "/home/cse/rrh/frulekit/parmenides" again
+:A  2: Abort to Lisp Top Level
+
+-> :B
+BOUNDP <- unnamed function <- LUCID-COMMON-LISP:FASLOAD <- (:INTERNAL LOAD LUCID::LOAD-BINARY-FILE) <- LOAD <- EVAL <- SYSTEM:ENTER-TOP-LEVEL
+-> 1
+Try loading "/home/cse/rrh/frulekit/parmenides" again
+;;; Loading binary file "parmenides.6bin"
+>>Error: BOUNDP called with 3 arguments, but only 1 argument is allowed
+
+BOUNDP:
+   Required arg 0 (S): *LANGUAGE*
+:C  0: Ignore extra arguments
+    1: Try loading "/home/cse/rrh/frulekit/parmenides" again
+:A  2: Abort to Lisp Top Level
+
+-> 0
+Ignore extra arguments
+>>Trap: Interrupt: bus error
+
+unnamed function:
+:C  0: Try loading "/home/cse/rrh/frulekit/parmenides" again
+:A  1: Abort to Lisp Top Level
+
+-> 1
+Abort to Lisp Top Level
+Back to Lisp Top Level
+
+> (quit)
+$ exit
+
+script done on Wed Jan 27 16:46:40 1993
+

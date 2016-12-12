@@ -1,0 +1,423 @@
+%!PS-Adobe-1.0
+%%Title: release.mss
+%%DocumentFonts: (atend)
+%%Creator: Peter Shell and Scribe 6(1600)
+%%CreationDate: 10 January 1990 14:37
+%%Pages: (atend)
+%%EndComments
+% PostScript Prelude for Scribe.
+/BS {/SV save def 0.0 792.0 translate .01 -.01 scale} bind def
+/ES {showpage SV restore} bind def
+/SC {setrgbcolor} bind def
+/FMTX matrix def
+/RDF {WFT SLT 0.0 eq 
+  {SSZ 0.0 0.0 SSZ neg 0.0 0.0 FMTX astore}
+  {SSZ 0.0 SLT neg sin SLT cos div SSZ mul SSZ neg 0.0 0.0 FMTX astore}
+  ifelse makefont setfont} bind def
+/SLT 0.0 def
+/SI { /SLT exch cvr def RDF} bind def
+/WFT /Courier findfont def
+/SF { /WFT exch findfont def RDF} bind def
+/SSZ 1000.0 def
+/SS { /SSZ exch 100.0 mul def RDF} bind def
+/AF { /WFT exch findfont def /SSZ exch 100.0 mul def RDF} bind def
+/MT /moveto load def
+/XM {currentpoint exch pop moveto} bind def
+/UL {gsave newpath moveto dup 2.0 div 0.0 exch rmoveto
+   setlinewidth 0.0 rlineto stroke grestore} bind def
+/LH {gsave newpath moveto setlinewidth
+   0.0 rlineto
+   gsave stroke grestore} bind def
+/LV {gsave newpath moveto setlinewidth
+   0.0 exch rlineto
+   gsave stroke grestore} bind def
+/BX {gsave newpath moveto setlinewidth
+   exch
+   dup 0.0 rlineto
+   exch 0.0 exch neg rlineto
+   neg 0.0 rlineto
+   closepath
+   gsave stroke grestore} bind def
+/BX1 {grestore} bind def
+/BX2 {setlinewidth 1 setgray stroke grestore} bind def
+/PB {/PV save def newpath translate
+    100.0 -100.0 scale pop /showpage {} def} bind def
+/PE {PV restore} bind def
+/GB {/PV save def newpath translate rotate
+    div dup scale 100.0 -100.0 scale /showpage {} def} bind def
+/GE {PV restore} bind def
+/FB {dict dup /FontMapDict exch def begin} bind def
+/FM {cvn exch cvn exch def} bind def
+/FE {end /original-findfont /findfont load def  /findfont
+   {dup FontMapDict exch known{FontMapDict exch get} if
+   original-findfont} def} bind def
+/BC {gsave moveto dup 0 exch rlineto exch 0 rlineto neg 0 exch rlineto closepath clip} bind def
+/EC /grestore load def
+/SH /show load def
+/MX {exch show 0.0 rmoveto} bind def
+/W {0 32 4 -1 roll widthshow} bind def
+/WX {0 32 5 -1 roll widthshow 0.0 rmoveto} bind def
+%%EndProlog
+%%Page: 0 1
+BS
+0 SI
+10 /Helvetica AF
+8312 7929 MT
+(The main)
+45 W( improvements in this release are: a $modify-in-place, a freelist for memory management, an)44 W
+7200 9355 MT
+(additional conflict-resolution step, an additional agenda control structure, and)
+333 W( lots of features and)334 W
+7200 10781 MT
+(functions fixed, implemented)
+279 W( or documented.  Daniel Borrajo, visiting from Spain, implemented the)278 W
+7200 12207 MT
+(modify-in-place and the freelist.)SH
+9424 13608 MT
+(1.)SH
+10536 XM
+(Added a freelist.  The following functions release frames to the freelist, which)
+107 W( means that)108 W
+10536 14751 MT
+(you shouldn't expect to be able to use the WME or frame after calling any of the following:)SH
+11092 16434 MT
+(Parmenides remove-frame)278 W
+11092 17577 MT
+(FRulekit $remove)
+834 W( [if)
+2780 W( *RECORD-LEVEL* is 0])SH
+11092 18720 MT
+(FRulekit $remove-keep)
+834 W( [if)
+1390 W( *RECORD-LEVEL* is 0])SH
+7200 20535 MT
+(From now on, when frames and WME's)
+38 W( are made, Parmenides will first look at the freelist to see if)37 W
+10536 21678 MT
+(there are any frames of that size available.  If so,)
+284 W( then it will re-cycle one of them.)285 W
+10536 22821 MT
+(Otherwise it makes a)
+394 W( new frame as before.  This should result in better memory)393 W
+10536 23964 MT
+(management and less consing, especially)
+92 W( for applications which make and remove lots of)93 W
+10536 25107 MT
+(frames or WMEs.)SH
+ES
+%%Page: 1 2
+BS
+0 SI
+10 /Helvetica-Bold AF
+30322 4329 MT
+(1)SH
+/Helvetica SF
+9424 7929 MT
+(2.)SH
+10536 XM
+(Added or documented the following FRulekit functions:)SH
+/Helvetica-Bold SF
+7200 10818 MT
+(1. $MODIFY-IN-PLACE)SH
+/Courier-Bold SF
+11736 12623 MT
+(Syntax: \050$modify-in-place <WME> <slot-specs>\051)SH
+11736 14428 MT
+(Example: \050$modify-in-place =c1 :name 'eat-cookie\051)SH
+/Helvetica SF
+10536 16288 MT
+(\050Added by Daniel Borrajo\051 This is)
+186 W( a 'true' modify.  Instead of removing and making the)185 W
+10536 17431 MT
+(WME, which)178 W
+/Helvetica-Bold SF
+16726 XM
+($modify)SH
+/Helvetica SF
+21016 XM
+(does,)SH
+/Helvetica-Bold SF
+23918 XM
+($modify-in-place)SH
+/Helvetica SF
+32320 XM
+(modifies the)
+178 W( specified WME directly, and)179 W
+10536 18574 MT
+(updates the conflict set if necessary.  This results in)
+445 W( a faster modify, and more)444 W
+10536 19717 MT
+(straightforward semantics.  With)115 W
+/Helvetica-Bold SF
+25500 XM
+($modify)SH
+/Helvetica SF
+(, if a rule had fired with a certain set)
+115 W( of WME's,)116 W
+10536 20860 MT
+(and then $modify is performed on one)
+70 W( of those WME's, then the rule can re-match even if)69 W
+10536 22003 MT
+(that rule didn't test any of the slots which were)
+6 W( changed.  In other words, with $modify, rules)7 W
+10536 23146 MT
+(can fire again even when it doesn't seem that)
+49 W( they should.  For example, the following rule)48 W
+10536 24289 MT
+(matches against people whose age is 10, and infers that they must weigh 100:)SH
+/Courier-Bold SF
+12936 25815 MT
+(\050RULE find-boy-or-girl)SH
+13536 26946 MT
+(:LHS)SH
+14136 28077 MT
+(\050\050person :age 10 \050LABEL =person\051\051\051)SH
+13536 29208 MT
+(:RHS \050)SH
+17136 30339 MT
+(\050$modify =person :wt 100\051\051\051)SH
+/Helvetica SF
+7200 32154 MT
+(Each time the rule fires,)
+14 W( it matches again because the)15 W
+/Helvetica-Oblique SF
+31413 XM
+(=person)SH
+/Helvetica SF
+35347 XM
+(WME is $remove'd and $make'd.  If)15 W
+10536 33297 MT
+($modify-in-place were used, it would not match)
+56 W( again since changing the)55 W
+/Helvetica-Oblique SF
+43606 XM
+(:wt)SH
+/Helvetica SF
+45217 XM
+(doesn't affect)55 W
+10536 34440 MT
+(the match.)SH
+7200 36255 MT
+(If *RECORD-LEVEL* \050see the section on Global Flags\051 is 1 or more, then $modify-in-place)
+32 W( creates)33 W
+10536 37398 MT
+(a new copy)
+64 W( of the given wme; otherwise it modifies the given WME destructively.  Returns)63 W
+10536 38541 MT
+(the new WME made.  Should)
+94 W( only be executed from the RHS of a production or during a)95 W
+10536 39684 MT
+(pause. Doesn't)
+278 W( fire any demons associated with the frame.)SH
+7200 41499 MT
+(Although)SH
+/Helvetica-Bold SF
+11453 XM
+($modify-in-place)SH
+/Helvetica SF
+19705 XM
+(has cleaner semantics, the)28 W
+/Helvetica-Bold SF
+31989 XM
+($modify)SH
+/Helvetica SF
+36129 XM
+(command has been around for)
+28 W( so)27 W
+10536 42642 MT
+(long in production systems that many production)
+29 W( sets rely on the semantics of $modify.  So)30 W
+10536 43785 MT
+(in changing to $modify-in-place, make sure that you are not relying on the old semantics.)SH
+/Helvetica-Bold SF
+7200 46674 MT
+(2. PP-WMES)SH
+/Courier-Bold SF
+11736 48479 MT
+(syntax: \050pp-wmes <list-of-wmes> &optional <stream>\051)SH
+11736 50284 MT
+(example: \050pp-wmes \050list <wme1> <wme2>\051\051)SH
+/Helvetica SF
+10536 52144 MT
+(Pretty-prints a list of)
+82 W( working memory elements.  <stream> defaults to the standard output)81 W
+10536 53287 MT
+(\050e.g., the terminal\051 for all printing functions.  Writes all slots.)SH
+/Helvetica-Bold SF
+7200 56176 MT
+(3. Pp-instant)SH
+/Courier-Bold SF
+11736 57981 MT
+(syntax: \050pp-instant <instantiation>\051)SH
+11736 59786 MT
+(example: \050pp-instant \050car *CONFLICT-SET*\051\051)SH
+/Helvetica SF
+10536 61646 MT
+(Pretty-prints the given rule instantiation.  Shows the WME's which matched the rule.)SH
+9424 62789 MT
+(3.)SH
+10536 XM
+(Made a change which makes compiled)
+63 W( rule files load correctly.  Before, there were certain)64 W
+10536 63932 MT
+(cases where compiled files with rules in them didn't work.)SH
+ES
+%%Page: 2 3
+BS
+0 SI
+10 /Helvetica-Bold AF
+30322 4329 MT
+(2)SH
+/Helvetica SF
+9424 7929 MT
+(4.)SH
+10536 XM
+(Added a new conflict-resolution filter for *FULL-CR*.  Here is the new description:)SH
+7200 9744 MT
+(FULL-CR is the same as MEA, with the following additional steps)
+787 W( at the end:)786 W
+/Helvetica-Bold SF
+10536 10887 MT
+(Narrow-down-wme-class)SH
+/Helvetica SF
+22626 XM
+(and)SH
+/Helvetica-Bold SF
+24605 XM
+(Narrown-down-test-class)SH
+/Helvetica SF
+(. The)
+344 W( first compares hierarchical)33 W
+10536 12030 MT
+(positions of the the classes of the matched WMEs.  A WME whose class is)46 W
+/Helvetica-Oblique SF
+44572 XM
+(is-a)SH
+/Helvetica SF
+46506 XM
+(another, is)45 W
+10536 13173 MT
+(more specific than that one.)
+41 W( For)
+362 W( example, the dog class is more specific than the mammal)42 W
+10536 14316 MT
+(class. The)
+278 W( second compares hierarchical positions of the the classes of the rules' tests.)SH
+9424 15459 MT
+(5.)SH
+10536 XM
+(Added or documented the following Parmenides functions:)SH
+/Helvetica-BoldOblique SF
+7200 17274 MT
+(set-cslot <class> <cslotname> <newvalue>)111 W
+/Helvetica SF
+28322 XM
+(Sets the value of the class slot of the given)
+111 W( frame)110 W
+10536 18417 MT
+(class to the given)194 W
+/Helvetica-Oblique SF
+19316 XM
+(<newvalue>)SH
+/Helvetica SF
+(. Note)
+666 W( that)
+194 W( unlike)195 W
+/Helvetica-Bold SF
+33740 XM
+(set-slot)SH
+/Helvetica SF
+(, this function only works with)195 W
+10536 19560 MT
+(classes. Does)
+278 W( not propagate to the instances or sub-classes.)SH
+/Helvetica-BoldOblique SF
+7200 21375 MT
+(add-to-cslot <class> <cslotname> <filler>)80 W
+/Helvetica SF
+27418 XM
+(Adds the given)
+80 W( filler to the list of values under class-)79 W
+10536 22518 MT
+(slot)SH
+/Helvetica-Oblique SF
+12370 XM
+(<cslotname>)SH
+/Helvetica SF
+18373 XM
+(in class)SH
+/Helvetica-Oblique SF
+21985 XM
+(<class>)SH
+/Helvetica SF
+(. Note)
+278 W( that the first argument must be a frame class.)SH
+9424 23661 MT
+(6.)SH
+10536 XM
+(Enhanced printing functionality in various ways.)
+103 W( If)
+486 W( the lisp you are using has the Richard)104 W
+10536 24804 MT
+(Waters XP pretty-printing system from MIT, then FRulekit will print)
+199 W( the =X, =! and =<X)198 W
+10536 25947 MT
+(correctly. The)
+444 W( Parmenides printing functions)
+83 W( pp-frame and save-frame work a little better.)84 W
+10536 27090 MT
+(If the frame to)
+81 W( be printed has a name, then that frame name will always be printed.  Also,)80 W
+10536 28233 MT
+(pp-frame now prints the class of frame instances.)SH
+9424 30048 MT
+(7.)SH
+10536 XM
+(Added a new agenda control strategy called)SH
+/Helvetica-Bold SF
+30269 XM
+(:linear-cycle)SH
+/Helvetica SF
+(. Its)
+278 W( description is:)SH
+/Helvetica-Bold SF
+7200 31863 MT
+(:linear-cycle)SH
+/Helvetica SF
+10536 33006 MT
+(Linear with respect to the agenda but cyclic inside the buckets.  FRulekit iterates)
+107 W( through)108 W
+10536 34149 MT
+(the buckets one after the other.  At the end of a bucket, if)
+50 W( any rule had fired in that bucket,)49 W
+10536 35292 MT
+(then control is returned to the beginning of that bucket again.  Otherwise, the next bucket is)24 W
+10536 36435 MT
+(chosen.)SH
+ES
+%%Page: i 4
+BS
+0 SI
+10 /Helvetica-Bold AF
+30461 4329 MT
+(i)SH
+12 SS 
+25533 8075 MT
+(Table of Contents)SH
+10 SS 
+13316 9224 MT
+(1. $MODIFY-IN-PLACE)SH
+53444 XM
+(1)SH
+13316 10373 MT
+(2. PP-WMES)SH
+53444 XM
+(1)SH
+13316 11522 MT
+(3. Pp-instant)SH
+53444 XM
+(1)SH
+ES
+%%Trailer
+%%Pages: 4 
+%%DocumentFonts: Helvetica Helvetica-Bold Courier-Bold Helvetica-Oblique Helvetica-BoldOblique

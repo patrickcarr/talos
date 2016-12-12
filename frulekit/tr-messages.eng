@@ -1,0 +1,8 @@
+;;; English version of the trace module messages
+
+:tracing-activated "Tracing activated~%"
+:only-positive-wmes "Sorry, ~A can only handle positive WMEs for now.~%"
+:ignoring-test "[Ignoring test ~A ~A]~%"
+:wme-list  "%~A: ?WME ~A must be a list whose car is either POS or ABS~%"
+:not-implemented  "Not implemented~%"
+:only-condes  "there are only ~A condes in ~A, asked for ~A"

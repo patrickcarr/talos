@@ -1,0 +1,14 @@
+
+
+
+Error output from /afs/cs.cmu.edu/user/pshell/frulekit/eg/label.lisp 10-Feb-89 0:17:49.
+Compiled on 5-Dec-89 17:59:48 by CLC version M1.8 ().
+
+MAKE-PERSON compiled.
+MAKE-BOY compiled.
+BEGIN compiled.
+
+Finished compilation of file "/afs/cs.cmu.edu/user/pshell/frulekit/eg/label.lisp".
+0 Errors, 0 Warnings.
+Elapsed time 0:00:04, run time 0:00:04.
+

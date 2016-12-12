@@ -1,0 +1,4 @@
+@Comment{ERRLOG of frulekit.mss by Scribe 7(1700) on 10 March 1992 at 17:55}
+
+Error found while processing database entry for document type at library(sansserif), line 7:
+No PostScript FontFamily named Helvetica9; the default will be used.

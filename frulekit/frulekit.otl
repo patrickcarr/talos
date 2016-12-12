@@ -1,0 +1,136 @@
+@Comment{OUTLINE of frulekit.mss by Scribe 7(1700) on 10 March 1992 at 17:55}
+1. Introduction                                           1 frulekit.mss, line 35
+2. Working Memory Elements                                1 frulekit.mss, line 60
+3. The Left Hand Side of a Rule                           2 frulekit.mss, line 101
+  3.1. Matching Against Working Memory                    2 frulekit.mss, line 113
+  3.2. The ABSence test                                   2 frulekit.mss, line 145
+  3.3. The <OR> test                                      3 frulekit.mss, line 175
+  3.4. Lisp Tests                                         3 frulekit.mss, line 246
+  3.5. The BIND commands                                  4 frulekit.mss, line 282
+  3.6. Specifying Slots                                   5 frulekit.mss, line 312
+  3.7. Labeling Condition Elements                        5 frulekit.mss, line 371
+  3.8. Nested WMEs                                        6 frulekit.mss, line 393
+  3.9. The =! Syntax                                      6 frulekit.mss, line 426
+  3.10. The =< Syntax                                     7 frulekit.mss, line 446
+4. Extra Lisp Test                                        7 frulekit.mss, line 455
+5. Right Hand Side Actions                                7 frulekit.mss, line 481
+  5.1. $MAKE                                              7 frulekit.mss, line 489
+  5.2. $REMOVE                                            7 frulekit.mss, line 507
+  5.3. $MODIFY                                            8 frulekit.mss, line 527
+6. Conflict Resolution                                    8 frulekit.mss, line 539
+  6.1. LEX                                                8 frulekit.mss, line 558
+  6.2. MEA                                                9 frulekit.mss, line 582
+  6.3. FULL-CR                                            9 frulekit.mss, line 591
+  6.4. User-defined C.R. Strategies                       9 frulekit.mss, line 601
+7. Agenda                                                10 frulekit.mss, line 650
+  7.1. Bucket Control Strategies                         10 frulekit.mss, line 694
+  7.2. Agenda Control Strategies                         11 frulekit.mss, line 725
+8. Trace Package                                         11 /usr/pshell/frulekit/trace.mss, line 2
+  8.1. Purpose                                           11 /usr/pshell/frulekit/trace.mss, line 11
+  8.2. Data Types                                        12 /usr/pshell/frulekit/trace.mss, line 25
+  8.3. Tracing Productions                               13 /usr/pshell/frulekit/trace.mss, line 141
+    8.3.1. give-matches <?WME>                           13 /usr/pshell/frulekit/trace.mss, line 160
+    8.3.2. give-firings <?WME>                           13 /usr/pshell/frulekit/trace.mss, line 169
+    8.3.3. give-next-matches <?WME>                      13 /usr/pshell/frulekit/trace.mss, line 176
+    8.3.4. give-next-firings <?WME>                      13 /usr/pshell/frulekit/trace.mss, line 188
+    8.3.5. give-matches-on-cycle N                       13 /usr/pshell/frulekit/trace.mss, line 194
+    8.3.6. give-firing-on-cycle N                        13 /usr/pshell/frulekit/trace.mss, line 198
+    8.3.7. give-firings-on-cycle N                       14 /usr/pshell/frulekit/trace.mss, line 202
+    8.3.8. give-named-matches <pname> N                  14 /usr/pshell/frulekit/trace.mss, line 209
+    8.3.9. give-named-firings <pname> N                  14 /usr/pshell/frulekit/trace.mss, line 214
+    8.3.10. lhs-of <pname>                               14 /usr/pshell/frulekit/trace.mss, line 218
+    8.3.11. rhs-of <pname>                               14 /usr/pshell/frulekit/trace.mss, line 222
+  8.4. WME Creation                                      14 /usr/pshell/frulekit/trace.mss, line 226
+    8.4.1. prod-responsible-for <?WME>                   14 /usr/pshell/frulekit/trace.mss, line 228
+    8.4.2. possible-prods-responsible-for <?WME>         14 /usr/pshell/frulekit/trace.mss, line 234
+    8.4.3. in-wmp <CONDE>                                14 /usr/pshell/frulekit/trace.mss, line 249
+    8.4.4. give-negs <production-firing>                 14 /usr/pshell/frulekit/trace.mss, line 262
+9. Command Summary                                       15 frulekit.mss, line 782
+  9.1. General Commands                                  15 frulekit.mss, line 787
+    9.1.1. RULE                                          15 frulekit.mss, line 789
+    9.1.2. RULE*                                         16 frulekit.mss, line 892
+    9.1.3. BUILD-RULE                                    16 frulekit.mss, line 898
+    9.1.4. BUILD-RULE*                                   16 frulekit.mss, line 908
+    9.1.5. PP-RULE                                       16 frulekit.mss, line 915
+    9.1.6. PP-WME                                        17 frulekit.mss, line 919
+    9.1.7. PP-WMES                                       17 frulekit.mss, line 925
+    9.1.8. PP-WM                                         17 frulekit.mss, line 932
+    9.1.9. PP-ITH-WME                                    17 frulekit.mss, line 937
+    9.1.10. SAVE-WME                                     17 frulekit.mss, line 944
+    9.1.11. SAVE-WM                                      17 frulekit.mss, line 951
+    9.1.12. SAVE-ITH-WME                                 17 frulekit.mss, line 956
+    9.1.13. WM                                           17 frulekit.mss, line 964
+    9.1.14. SET-WM                                       18 frulekit.mss, line 972
+    9.1.15. ADD-TO-WM                                    18 frulekit.mss, line 983
+    9.1.16. Pp-instant                                   18 frulekit.mss, line 993
+    9.1.17. Def-cr-strategy                              18 frulekit.mss, line 999
+    9.1.18. Def-complex-cr-strategy                      18 frulekit.mss, line 1017
+    9.1.19. Def-inverse-action                           19 frulekit.mss, line 1032
+    9.1.20. PR-SWITCHES                                  19 frulekit.mss, line 1047
+    9.1.21. RE-INIT-TRACE                                19 frulekit.mss, line 1053
+    9.1.22. $DISJ                                        19 frulekit.mss, line 1060
+    9.1.23. $DISJ-NUMS                                   19 frulekit.mss, line 1068
+  9.2. OPS style Commands                                20 frulekit.mss, line 1083
+    9.2.1. START                                         20 frulekit.mss, line 1085
+    9.2.2. LITERALIZE                                    20 frulekit.mss, line 1096
+    9.2.3. $MAKE                                         20 frulekit.mss, line 1118
+    9.2.4. $MAKE-NAMED                                   20 frulekit.mss, line 1126
+    9.2.5. $REMOVE                                       20 frulekit.mss, line 1132
+    9.2.6. $REMOVE-KEEP                                  21 frulekit.mss, line 1142
+    9.2.7. $MODIFY                                       21 frulekit.mss, line 1148
+    9.2.8. $MODIFY-IN-PLACE                              21 frulekit.mss, line 1162
+    9.2.9. $MODIFY-DEMONS                                22 frulekit.mss, line 1200
+    9.2.10. EXCISE                                       22 frulekit.mss, line 1208
+    9.2.11. ADD-FRAME                                    22 frulekit.mss, line 1216
+    9.2.12. WHYNOT                                       22 frulekit.mss, line 1221
+    9.2.13. MATCHES                                      22 frulekit.mss, line 1232
+    9.2.14. D-IN-INSTANTS                                22 frulekit.mss, line 1240
+    9.2.15. VAR-IN-INSTANT                               22 frulekit.mss, line 1247
+    9.2.16. HALT                                         23 frulekit.mss, line 1253
+    9.2.17. RBREAK                                       23 frulekit.mss, line 1260
+    9.2.18. CONT                                         23 frulekit.mss, line 1272
+    9.2.19. RUN                                          23 frulekit.mss, line 1277
+    9.2.20. BACK                                         23 frulekit.mss, line 1283
+    9.2.21. INIT-RETE                                    23 frulekit.mss, line 1291
+    9.2.22. CLEAR-NET                                    23 frulekit.mss, line 1295
+    9.2.23. COMPILE-NODES                                24 frulekit.mss, line 1303
+    9.2.24. COMPILE-RHSES                                24 frulekit.mss, line 1323
+    9.2.25. COMPILE-ALL                                  24 frulekit.mss, line 1327
+    9.2.26. INHIBIT-RULES                                24 frulekit.mss, line 1335
+    9.2.27. UNINHIBIT-RULES                              24 frulekit.mss, line 1346
+    9.2.28. $MODIFY-NUM                                  24 frulekit.mss, line 1356
+  9.3. Agenda Commands                                   25 frulekit.mss, line 1364
+    9.3.1. (r-linear <bucket>)                           25 frulekit.mss, line 1366
+    9.3.2. (r-cycle <bucket>)                            25 frulekit.mss, line 1372
+    9.3.3. (r-priority <bucket>)                         25 frulekit.mss, line 1375
+    9.3.4. (r-agenda <agenda> &optional <cycles>)        25 frulekit.mss, line 1378
+    9.3.5. (create-new-agenda <agenda>)                  25 frulekit.mss, line 1391
+    9.3.6. (cont-agenda &optional <cycles>)              25 frulekit.mss, line 1395
+    9.3.7. (add-rule <bucket-spec> <bucket-position> <r  25 frulekit.mss, line 1400
+    9.3.8. (add-rules <list-of-addrule-specs>)           25 frulekit.mss, line 1409
+    9.3.9. (make-bucket <bucket-name> <bucket-contents>  25 frulekit.mss, line 1416
+    9.3.10. (add-buckets <bucket-specs>)                 26 frulekit.mss, line 1423
+    9.3.11. (add-bucket <bucket-name> <bucket-spec>)     26 frulekit.mss, line 1436
+    9.3.12. (add-new-bucket <bucket-name> <bucket-spec>  26 frulekit.mss, line 1440
+    9.3.13. (delete-rules <list-of-delelterule-specs>)   26 frulekit.mss, line 1445
+    9.3.14. (delete-buckets <bucket-names>)              26 frulekit.mss, line 1452
+    9.3.15. (delete-bucket <bucket-name>)                26 frulekit.mss, line 1458
+    9.3.16. (get-bucket <bucket-name>)                   26 frulekit.mss, line 1461
+    9.3.17. (compile-extra-tests)                        26 frulekit.mss, line 1465
+10. Useful Global Variables and Switches                 26 frulekit.mss, line 1470
+11. Multiple Language Messages                           28 frulekit.mss, line 1598
+12. Acknowledgements                                     29 frulekit.mss, line 1614
+I. An Example: The Tower of Hanoi                        30 frulekit.mss, line 1637
+II. Another Example: Network propagation                 31 frulekit.mss, line 1696
+III. Yet another Example: Nested WMEs                    32 frulekit.mss, line 1738
+                              nested                     32 frulekit.mss, line 1739
+IV. Specifying the position of buckets and rules         33 frulekit.mss, line 1788
+                              agendasyntax               33 frulekit.mss, line 1789
+V. Acquiring, Loading, Compiling and Using FRulekit      33 frulekit.mss, line 1810
+ Table of Contents                                        1 Scribec14659, line 3
+	Alphabetic Listing of Cross-Reference Tags and Labels
+
+Tag or Label Name                    Page   Label Value  Source file Location
+-----------------------------------------------------------------------------
+AGENDASYNTAX                           33          IV  frulekit.mss, line 1789
+NESTED                                 32         III  frulekit.mss, line 1739
