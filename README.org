@@ -1,0 +1,4 @@
+* talos
+#+ATTR_HTML: alt="Ohh shit it is Talos!"
+[[file:img/talos.jpg]]
+"Run he is coming!!"
